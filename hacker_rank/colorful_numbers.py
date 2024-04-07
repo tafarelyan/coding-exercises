@@ -1,16 +1,16 @@
-from functools import reduce
-
 def isColorful(number):
     products = []
     number = str(number)
-    for i in range(1, len(number)):
-        for j in range(len(number) + 1 - i):
-            product = reduce(lambda a, b: a * b, [int(x) for x in number[j:i+j]])
+
+    for i in range(len(number)):
+        product = 1
+        for j in range(i + 1, len(number) + 1 if i != 0 else len(number)):
+            product = product * int(number[j-1])
+
             if product in products:
                 return False
             else:
                 products.append(product)
-    
     return True
 
 if __name__ == '__main__':
