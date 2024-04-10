@@ -3,10 +3,9 @@ class Solution:
         shortest = len(nums)
         total = 0
         l = 0
-        r = 0
 
-        for i in range(len(nums)):
-            total += nums[i]
+        for r in range(len(nums)):
+            total += nums[r]
 
             if total >= target:
                 while total - nums[l] >= target:
@@ -14,8 +13,6 @@ class Solution:
                     l += 1
 
                 shortest = min(shortest, r - l + 1)
-
-            r += 1
 
         return shortest if total >= target else 0
 
