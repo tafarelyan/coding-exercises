@@ -6,29 +6,24 @@ class ListNode:
 
 class Solution:
     def addTwoNumbers(self, l1, l2):
-        total = 0
-        l = []
-        while True:
-            if l1:
-                total += l1.val
-                l1 = l1.next
-            
-            if l2:
-                total += l2.val
-                l2 = l2.next
+        dummy = ListNode()
+        currentNode = dummy
+        carry = 0
 
-            l.append(total % 10)
-            total = total // 10
+        while l1 or l2 or carry:
+            v1 = l1.val if l1 else 0
+            v2 = l2.val if l2 else 0
 
-            if not l1 and not l2 and not total:
-                break
+            val = v1 + v2 + carry
+            carry = val // 10
+            val = val % 10
+            currentNode.next = ListNode(val=val)
 
-        head = None
-        for n in l[::-1]:
-            node = ListNode(val=n, next=head)
-            head = node
-        return head
+            currentNode = currentNode.next
+            l1 = l1.next if l1 else None
+            l2 = l2.next if l2 else None
 
+        return dummy.next
 
 def convert_list_to_linked_list(l):
     head = None
