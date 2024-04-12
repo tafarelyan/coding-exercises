@@ -3,12 +3,6 @@ class ListNode:
         self.val = val
         self.next = next
 
-
-class Solution:
-    def function(self, arg):
-        return arg
-
-
 def convert_list_to_linked_list(list_: list) -> ListNode:
     currentNode = None
     for val in list_[::-1]:
@@ -23,6 +17,12 @@ def print_linked_list(head: ListNode) -> None:
         currentNode = currentNode.next
     print('None')
 
+#=============================================#
+
+class Solution:
+    def function(self, arg):
+        return arg
+
 if __name__ == '__main__':
     solution = Solution()
-    print(solution.function('Hello World'))
+    solution.function('Hello World')
