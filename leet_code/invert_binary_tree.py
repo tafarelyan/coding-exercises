@@ -32,11 +32,38 @@ def convert_list_to_tree(l: list) -> TreeNode:
 #========================================#
 
 class Solution:
+    # DFS solution
     def invertTree(self, root: TreeNode) -> TreeNode:
+        if not root:
+            return root
+
+        self.invertTree(root.left)
+        self.invertTree(root.right)
+
+        root.left, root.right = root.right, root.left
+        return root
+
+    # BFS solution
+    def invertTree2(self, root: TreeNode) -> TreeNode:
+        if not root:
+            return root
+
+        visited = [root]
+        while visited:
+            node = visited.pop()
+
+            node.left, node.right = node.right, node.left
+
+            if node.left:
+                visited.append(node.left)
+            if node.right:
+                visited.append(node.right)
+
         return root
 
 if __name__ == '__main__':
     solution = Solution()
 
     root = convert_list_to_tree([4,2,7,1,3,6,9])
+    print(root)
     print(solution.invertTree(root))
