@@ -7,17 +7,14 @@ class TreeNode:
         self.right = right
 
     def __str__(self):
-        return f'<{self.val}, {self.left}, {self.right}>'
+        return f'<{self.val}>'
 
-
-def convert_list_to_tree(l):
+def convert_list_to_tree(l: list) -> TreeNode:
     data = iter(l)
     tree = TreeNode(val=next(data))
     fringe = deque([tree])
     while True:
-        print(fringe)
         head = fringe.popleft()
-
         try:
             val = next(data)
             if val:
