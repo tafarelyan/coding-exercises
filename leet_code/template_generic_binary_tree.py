@@ -7,7 +7,7 @@ class TreeNode:
         self.right = right
 
     def __str__(self):
-        return f'<{self.val}>'
+        return f'<{self.val}, {self.left}, {self.right}>'
 
 def convert_list_to_tree(l: list) -> TreeNode:
     data = iter(l)
