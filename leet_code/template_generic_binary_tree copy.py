@@ -48,23 +48,20 @@ class Solution:
         elif not p or not q:
             return False
 
-        visitedP, visitedQ = [p], [q]
-        while visitedP and visitedQ:
-            nodeP = visitedP.pop()
-            nodeQ = visitedQ.pop()
+        visited = [(p, q)]
+        while visited:
+            nodeP, nodeQ = visited.pop()
 
             if nodeP.val != nodeQ.val:
                 return False
 
             if nodeP.left and nodeQ.left:
-                visitedP.append(nodeP.left)
-                visitedQ.append(nodeQ.left)
+                visited.append((nodeP.left, nodeQ.left))
             elif nodeP.left or nodeQ.left:
                 return False
 
             if nodeP.right and nodeQ.right:
-                visitedP.append(nodeP.right)
-                visitedQ.append(nodeQ.right)
+                visited.append((nodeP.right, nodeQ.right))
             elif nodeP.right or nodeQ.right:
                 return False
 
