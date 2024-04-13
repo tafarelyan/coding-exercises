@@ -3,6 +3,8 @@ class ListNode:
         self.val = val
         self.next = next
 
+    def __str__(self):
+        return f'{self.val}->{self.next}'
 
 class Solution:
     def mergeTwoLists(self, list1: ListNode, list2: ListNode) -> ListNode:
@@ -34,13 +36,6 @@ def convert_list_to_linked_list(list_: list) -> ListNode:
         currentNode = node
     return currentNode
 
-def print_linked_list(head: ListNode) -> None:
-    currentNode = head
-    while currentNode:
-        print(currentNode.val, end='->')
-        currentNode = currentNode.next
-    print('None')
-
 if __name__ == '__main__':
     solution = Solution()
 
@@ -48,4 +43,4 @@ if __name__ == '__main__':
     head2 = convert_list_to_linked_list([1,3,4])
 
     head = solution.mergeTwoLists(head1, head2)
-    print_linked_list(head)
+    print(head)

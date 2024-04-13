@@ -3,6 +3,8 @@ class ListNode:
         self.val = val
         self.next = next
 
+    def __str__(self):
+        return f'{self.val}->{self.next}'
 
 class Solution:
     def addTwoNumbers(self, l1: ListNode, l2: ListNode) -> ListNode:
@@ -32,27 +34,20 @@ def convert_list_to_linked_list(l):
         head = node
     return head
 
-def print_linked_list(head):
-    currentNode = head
-    while currentNode:
-        print(currentNode.val, end='->')
-        currentNode = currentNode.next
-    print('None')
-
 if __name__ == '__main__':
     solution = Solution()
 
     l1 = convert_list_to_linked_list([2,4,3])
     l2 = convert_list_to_linked_list([5,6,4])
     head = solution.addTwoNumbers(l1, l2)
-    print_linked_list(head)
+    print(head)
 
     l1 = convert_list_to_linked_list([0])
     l2 = convert_list_to_linked_list([0])
     head = solution.addTwoNumbers(l1, l2)
-    print_linked_list(head)
+    print(head)
 
     l1 = convert_list_to_linked_list([9,9,9,9,9,9,9])
     l2 = convert_list_to_linked_list([9,9,9,9])
     head = solution.addTwoNumbers(l1, l2)
-    print_linked_list(head)
+    print(head)
