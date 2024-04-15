@@ -1,4 +1,3 @@
-from time import sleep
 from pprint import pprint
 
 def quickestWayUp(ladders, snakes):
